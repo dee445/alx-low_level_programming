@@ -1,11 +1,10 @@
-#include "unistd.h"
+#include "main.h"
 
 /**
  * main - prints a char
  * Return: always 0
  */
 int main(void)
-	int _putchar (char c)
 {
 	_putchar("_");
 	_putchar("p");

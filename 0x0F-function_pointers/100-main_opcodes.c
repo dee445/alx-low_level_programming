@@ -1,10 +1,36 @@
-#ifndef FUNCTION_POINTERS_H
-#define FUNCTION_POINTERS_H
-
+#include <stdio.h>
 #include <stdlib.h>
+/**
+  *main - print opcodes of a given machine.
+  *@argc: number of arguments.
+  *@argv: argument vector.
+  *
+  *Return: 0.
+  */
+int main(int argc, char *argv[])
+{
+	int count, bytes;
 
-void print_name(char *name, void (*f)(char *));
-void array_iterator(int *array, size_t size, void (*action)(int));
-int int_index(int *array, int size, int (*cmp)(int));
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
-#endif
+	bytes = atoi(argv[1]);
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+
+	for (count = 0; count < bytes; count++)
+	{
+		printf("%02hhx", *((char *)main + count));
+		if (count  < bytes - 1)
+			printf(" ");
+		else
+			printf("\n");
+	}
+	return (0);
+}
